@@ -22,6 +22,8 @@ function AnimeController($log, animeData) {
       $log.error('failer', res);
     })
     self.newAnime = {};
+    self.newAnime.episodesWatched = 0;
+    self.newAnime.episodesLeft = newAnime.totalEpisodes;
   }
 
   function getAnimes() {
@@ -34,6 +36,10 @@ function AnimeController($log, animeData) {
       .catch(function(res) {
         $log.error('failer', res);
       })
+  }
+
+  function updateAnime(anime) {
+
   }
 
   function deleteAnime(anime) {

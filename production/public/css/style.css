@@ -1,0 +1,12 @@
+label {
+  color: red;
+}
+
+.title {
+  text-align: center;
+}
+
+.glyphicon glyphicon-trash {
+  color: black;
+  display: block;
+}

@@ -1,7 +1,7 @@
-const express         = require('express'),
+var   express         = require('express'),
       router          = express.Router(),
       bodyParser      = require('body-parser'),
-      animeController = require('../controllers/animes.js');
+      animeController = require('../controllers/animes');
 
 router.route('/anime')
   .get(animeController.getAll)

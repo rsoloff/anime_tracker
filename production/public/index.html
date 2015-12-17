@@ -4,31 +4,45 @@
   <meta charset="UTF-8">
   <title>Anime Tracker</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-
-<section class="container" ng-controller="AnimeController as anime">
-  <form ng-submit="anime.addAnime()">
-        <div class="form-group">
-          <label for="new-anime-title">Name of Anime</label>
-          <input required type="text" id="new-anime-title" placeholder="What anime would you like to add?"
-          class="form-control"
-          ng-model='anime.newAnime.title'>
-        </div>
-
-        <div class="form-inline">
+  <div class="title">
+    <h1>Anime Tracker</h1>
+    <h3>Keep up to date on your anime watch list</h3>
+  </div>
+  <section class="container" ng-controller="AnimeController as anime">
+    <form ng-submit="anime.addAnime()">
+      <section class="col-md-12 well">
+        <form ng-submit="anime.addAnime()">
           <div class="form-group">
-            <label for="new-anime-totalEpisodes">Total number of episodes</label>
-            <input required type="number" placeholder="13" id="new-anime-totalEpisodes" class="form-control"
-            ng-model='anime.newAnime.totalEpisodes'>
+            <label for="new-anime-title">Name of Anime</label>
+            <input required type="text" id="new-anime-title" placeholder="Add an anime"
+            class="form-control"
+            ng-model='anime.newAnime.title'>
           </div>
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit">Add Anime</button>
-          </div>
-        </div>
-      </form>
-</section>
 
+          <div class="form-inline">
+            <div class="form-group">
+              <label for="new-anime-totalEpisodes">Total number of episodes</label>
+              <input required type="number" placeholder="13" id="new-anime-totalEpisodes" class="form-control"
+              ng-model='anime.newAnime.totalEpisodes'>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Add Anime</button>
+            </div>
+          </div>
+        </form>
+    </section>
+    <section class="col-md-12">
+      <ol id="anime">
+        <li ng-repeat="curr_anime in anime.all | orderBy:['title'] ">
+          <strong>{{curr_anime.title}}</strong> <em>{{curr_anime.totalEpisodes}}</em> <em>{{curr_anime.episodesWatched}}</em> <em>{{curr_anime.episodesLeft}}</em>
+          <a href class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="anime.deleteAnime(curr_anime)"></a>
+        </li>
+      </ol>
+    </section>
+  </section>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>

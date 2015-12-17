@@ -3,7 +3,7 @@ var express = require('express'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    routes = require('./config/routes');
+    routes = require('./config/routes'),
     app = express();
 
 app.use(logger('combined'));

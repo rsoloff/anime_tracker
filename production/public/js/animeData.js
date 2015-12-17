@@ -1,6 +1,6 @@
 'use strict';
 
-aniApp.factory('animeData', ['$resource'], animeDataFactory);
+animeApp.factory('animeData', ['$resource', animeDataFactory]);
 
 function animeDataFactory($resource) {
   var Anime = $resource('/anime/:id', {id: '@id'});

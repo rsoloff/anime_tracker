@@ -26,7 +26,7 @@ function getAnime(req, res) {
 function updateAnime(req, res) {
   var id = req.params.id;
   Anime.findById({_id: id}, function (err, anime) {
-    if (err) res.json({message: err + '. Could not editanime'});
+    if (err) res.json({message: err + '. Could not edit anime'});
     if (req.body) anime.episodesWatched +=1
     if (req.body) anime.episodesLeft -=1;
     anime.save(function (err) {
@@ -48,5 +48,6 @@ module.exports = {
   getAll: getAll,
   createAnime: createAnime,
   updateAnime: updateAnime,
-  removeAnime: removeAnime
+  removeAnime: removeAnime,
+  getAnime: getAnime
 }
